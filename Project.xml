@@ -31,7 +31,8 @@
 
 	<set name="BUILD_DIR" value="export" />
 	<source path="source" />
-	<assets path="assets" />
+	<assets path="Boyfriend_Assets.png" />
+	<assets path="Boyfriend_Assets.xml" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
