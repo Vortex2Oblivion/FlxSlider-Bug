@@ -5,6 +5,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.addons.display.FlxGridOverlay;
+import flixel.addons.ui.FlxSlider;
 import flixel.addons.ui.FlxUISlider;
 import flixel.addons.ui.FlxUITooltip.FlxUITooltipStyle;
 import flixel.addons.ui.FlxUITooltipManager.FlxUITooltipData;
@@ -27,7 +28,8 @@ class PlayState extends FlxState
 
 	var zoomText:FlxText;
 
-	var sliderSpeed:FlxUISlider;
+	var sliderSpeedUI:FlxUISlider;
+	var sliderSpeed:FlxSlider;
 
 	override public function create()
 	{
@@ -64,9 +66,14 @@ class PlayState extends FlxState
 		add(infoText);
 		infoText.y = 250;
 
-		sliderSpeed = new FlxUISlider(this, 'bfAngleSpeed', 480, 0, 0.1, 100);
+		sliderSpeedUI = new FlxUISlider(this, 'bfAngleSpeed', 480, 0, 0.1, 100);
+		sliderSpeedUI.cameras = [camHUD];
+		sliderSpeedUI.nameLabel.text = 'Boyfriend Rotation Speed (FlxUISlider)';
+		add(sliderSpeedUI);
+
+		sliderSpeed = new FlxSlider(this, 'bfAngleSpeed', 480, 50, 0.1, 100);
 		sliderSpeed.cameras = [camHUD];
-		sliderSpeed.nameLabel.text = 'Boyfriend Rotation Speed';
+		sliderSpeed.nameLabel.text = 'Boyfriend Rotation Speed (FlxSlider)';
 		add(sliderSpeed);
 		super.create();
 	}
